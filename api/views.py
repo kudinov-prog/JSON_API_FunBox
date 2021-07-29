@@ -21,7 +21,7 @@ class PostVisitsView(APIView):
     """
 
     def post(self, request):
-        
+
         # Получение текущего времени
         current_timestamp = int(time.time())
 
@@ -64,7 +64,7 @@ class GetDomainsView(APIView):
         # Проверка, что заданные значения времени являются целочисленными
         # значениями
         if (not timestamp_from or not timestamp_to or
-            not timestamp_from.isdigit() or not timestamp_to.isdigit()):
+                not timestamp_from.isdigit() or not timestamp_to.isdigit()):
             response = {'status': 'Not valid time interval'}
 
             return Response(response, status=status.HTTP_400_BAD_REQUEST)
@@ -74,7 +74,7 @@ class GetDomainsView(APIView):
             # времени
             if (not key.decode('utf-8').isdigit()
                 or int(key) < int(timestamp_from)
-                or int(key) > int(timestamp_to)):
+                    or int(key) > int(timestamp_to)):
                 continue
 
             # Если ключ имеет список значений, то они добавляются в links_set
@@ -85,7 +85,7 @@ class GetDomainsView(APIView):
             # Извлечение названия домена из строки и добавление в domains_list
             domains_list.append(
                 (link.decode('utf-8').split('//')[-1].
-                split('www.')[-1].split('/')[0].split('?')[0])
+                 split('www.')[-1].split('/')[0].split('?')[0])
                 )
 
         response = {
