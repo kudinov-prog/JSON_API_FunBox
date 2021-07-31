@@ -55,6 +55,7 @@ class GetDomainsView(APIView):
     /visited_domains?from=<timestamp_from>&to=<timestamp_to>
     """
     def get(self, request):
+        
         links_bytes_list = []
         domains_list = []
 
