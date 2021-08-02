@@ -15,3 +15,4 @@ pip install -r requirements.txt
 ```
 python manage.py runserver
 ```
+* Запуск тестов из папки /test командой pytest.
